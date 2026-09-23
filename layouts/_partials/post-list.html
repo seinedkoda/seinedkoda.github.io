@@ -1,0 +1,32 @@
+<h2>{{ T "posts" }}</h2>
+
+<ul class="post-list">
+    {{ range where .Site.RegularPages "Section" "posts" }}
+    {{ $p := . }}
+    <li class="post-item">
+        {{ with .Resources.GetMatch "cover.*" }}
+        <div class="post-item-image">
+            <a href="{{ $p.Permalink }}">
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            </a>
+        </div>
+        {{ end }}
+
+        <h2 class="post-item-title">
+            <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+        </h2>
+
+        {{ with $p.Summary }}
+        <p class="post-item-summary">
+            {{ . | plainify | truncate 150 }}
+        </p>
+        {{ end }}
+
+        <hr>
+
+        <time class="post-item-date" datetime="{{ $p.Date.Format " 2006-01-02" }}">
+            {{ .Date | time.Format ":date_full" }}
+        </time>
+    </li>
+    {{ end }}
+</ul>

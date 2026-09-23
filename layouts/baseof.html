@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  {{ partial "icons.html" . }}
+
+  <div class="layout">
+    {{ partial "header.html" . }}
+    <main class="site-main">
+      <div class="site-main-title">
+        <h1>
+          <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        </h1>
+      </div>
+
+      <div class="accent-line"></div>
+
+      <div class="site-main-content">
+        {{ block "main" . }}
+        {{ end }}
+      </div>
+
+      {{ partial "footer.html" . }}
+    </main>
+
+  </div>
+</body>
+
+</html>

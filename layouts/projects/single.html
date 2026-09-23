@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ with resources.Get "css/projects.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}
+
+<article class="post-single">
+
+  <div class="post-single-content">
+    {{ .Content }}
+  </div>
+
+</article>
+{{ end }}

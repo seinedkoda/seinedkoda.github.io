@@ -1,0 +1,28 @@
+<header class="site-header">
+
+  <ul class="site-header-list">
+    {{ range .Site.Menus.main }}
+    {{ $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+
+    <li class="site-header-list-item {{ if $isActive }}active{{ end }}">
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    </li>
+
+    {{ end }}
+  </ul>
+
+  <hr>
+
+  {{ with .Rotate "language" }}
+  <ul class="language-switcher">
+    {{ range . }}
+    {{ if eq .Site.Language $.Site.Language }}
+    <li class="language-item active"><a aria-current="page" href="{{ .Permalink }}">{{ .Site.Language.Label }}</a></li>
+    {{ else }}
+    <li class="language-item"><a href="{{ .Permalink }}">{{ .Site.Language.Label }}</a></li>
+    {{ end }}
+    {{ end }}
+  </ul>
+  {{ end }}
+
+</header>

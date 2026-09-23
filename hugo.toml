@@ -1,0 +1,48 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Seined Koda'
+
+paginationPagerSize = 10
+
+[markup]
+  [markup.highlight]
+    style = 'ashen'
+
+defaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    label = "English"
+    locale = "en-US"
+    weight = 1
+    [languages.en.menus]
+      [[languages.en.menus.main]]
+        name = "Home"
+        pageRef = "/"
+        weight = 1
+      [[languages.en.menus.main]]
+        name = "Projects"
+        pageRef = "/projects/"
+        weight = 2
+      [[languages.en.menus.main]]
+        name = "About"
+        pageRef = "/about/"
+        weight = 3
+
+  [languages.ru]
+    label = "Русский"
+    locale = "ru-RU"
+    weight = 2
+    [languages.ru.menus]
+      [[languages.ru.menus.main]]
+        name = "Главная"
+        pageRef = "/"
+        weight = 1
+      [[languages.ru.menus.main]]
+        name = "Проекты"
+        pageRef = "/projects/"
+        weight = 2
+      [[languages.ru.menus.main]]
+        name = "О Сайте"
+        pageRef = "/about/"
+        weight = 3

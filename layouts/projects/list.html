@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+{{ with resources.Get "css/projects.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}
+
+<h2>{{ T "projects" }}</h2>
+
+{{ with .Content }}
+{{ . }}
+{{ end }}
+
+<ul class="project-list">
+  {{ range .Pages }}
+  {{ $p := . }}
+  <li class="project-item">
+
+    {{ with .Resources.GetMatch "cover.*" }}
+    <div class="project-item-image">
+      <a href="{{ $p.RelPermalink }}">
+        <img src="{{ .RelPermalink }}" alt="{{ $p.Title }}" loading="lazy">
+      </a>
+    </div>
+    {{ end }}
+
+    <div class="project-item-info">
+
+      <h3 class="project-item-title">
+        <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+      </h3>
+
+      {{ with $p.Description }}
+      <p class="project-item-summary">{{ $p.Description }}</p>
+      {{ end }}
+
+      <!-- {{ with $p.Params.tags }}
+      <ul class="project-item-tags">
+        {{ range . }}
+        <li class="project-item-tag"><a href="{{ " /tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }} -->
+
+    </div>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

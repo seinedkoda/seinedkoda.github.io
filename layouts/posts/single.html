@@ -1,0 +1,34 @@
+{{ define "main" }}
+<article class="post-single">
+
+  <div class="post-single-date">
+    <time datetime="{{ .Date.Format " 2006-01-02" }}">
+      {{ .Date | time.Format ":date_full" }}
+    </time>
+  </div>
+
+  <h1 class="post-single-title">{{ .Title }}</h1>
+
+  {{ with .Resources.GetMatch "cover.*" }}
+  <div class="post-single-cover">
+    <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+
+  <hr>
+
+  <div class="post-single-content">
+    {{ .Content }}
+  </div>
+
+</article>
+
+<nav class="post-nav">
+  {{ with .PrevInSection }}
+  <a href="{{ .RelPermalink }}">← {{ T "prev-post" }} "{{ .Title }}"</a>
+  {{ end }}
+  {{ with .NextInSection }}
+  <a href="{{ .RelPermalink }}">{{ T "next-post" }} "{{ .Title }}" →</a>
+  {{ end }}
+</nav>
+{{ end }}
