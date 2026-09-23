@@ -1,6 +1,6 @@
 +++
 date = '2026-09-21'
-draft = true
+draft = false
 title = 'About'
 translationKey = 'about'
 +++

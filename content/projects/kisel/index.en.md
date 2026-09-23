@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 title = 'Kisel'
 translationKey = 'kisel'
 description = 'Efficient launch of Windows programs'
