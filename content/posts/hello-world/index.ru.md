@@ -15,6 +15,8 @@ translationKey = "hello-world"
 
 ~~Ошибочка вышла...~~
 
+![cat](absolute-cinema.gif)
+
 >> В дверь постучали 2 миллиона раз.\
 DDoS-атака! - подумал Штирлиц.
 

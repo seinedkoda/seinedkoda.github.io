@@ -15,6 +15,8 @@ This is my first page on the site. Below are some formatting examples.
 
 ~~Oops, made a mistake...~~
 
+![cat](absolute-cinema.gif)
+
 >> There was a knock on the door—two million times.\
 "A DDoS attack!" thought Stierlitz.
 
