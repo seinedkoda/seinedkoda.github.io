@@ -13,7 +13,7 @@
         {{ end }}
 
         <h2 class="post-item-title">
-            <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+            <a class="post-item-link" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
         </h2>
 
         {{ with $p.Summary }}

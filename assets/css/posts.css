@@ -16,12 +16,36 @@
     border: 1px solid var(--color-border);
     border-radius: 12px;
     background: var(--color-bg-raised);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: opacity 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.post-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+.post-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(50deg, var(--color-bg-raised) 5%, var(--color-accent) 95%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.post-item:hover::before {
+    opacity: 0.6;
+}
+
+.post-item>* {
+    position: relative;
+    z-index: 1;
+}
+
+.post-item-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .post-item-image {
@@ -72,6 +96,11 @@
     background: var(--color-border);
     margin-block: 0.2rem;
     width: 100%;
+    transition: background-color 0.4s;
+}
+
+.post-item:hover hr {
+    background: var(--color-accent);
 }
 
 .post-item-date {
@@ -123,6 +152,13 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+.post-single-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .post-single-content ul,
